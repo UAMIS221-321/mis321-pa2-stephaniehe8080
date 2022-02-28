@@ -1,0 +1,16 @@
+C:\Users\steph\source\repos\mis321-pa2-stephaniehe8080\bin\Debug\net5.0\mis321-pa2-stephaniehe8080.exe
+C:\Users\steph\source\repos\mis321-pa2-stephaniehe8080\bin\Debug\net5.0\mis321-pa2-stephaniehe8080.deps.json
+C:\Users\steph\source\repos\mis321-pa2-stephaniehe8080\bin\Debug\net5.0\mis321-pa2-stephaniehe8080.runtimeconfig.json
+C:\Users\steph\source\repos\mis321-pa2-stephaniehe8080\bin\Debug\net5.0\mis321-pa2-stephaniehe8080.runtimeconfig.dev.json
+C:\Users\steph\source\repos\mis321-pa2-stephaniehe8080\bin\Debug\net5.0\mis321-pa2-stephaniehe8080.dll
+C:\Users\steph\source\repos\mis321-pa2-stephaniehe8080\bin\Debug\net5.0\ref\mis321-pa2-stephaniehe8080.dll
+C:\Users\steph\source\repos\mis321-pa2-stephaniehe8080\bin\Debug\net5.0\mis321-pa2-stephaniehe8080.pdb
+C:\Users\steph\source\repos\mis321-pa2-stephaniehe8080\obj\Debug\net5.0\mis321-pa2-stephaniehe8080.csproj.AssemblyReference.cache
+C:\Users\steph\source\repos\mis321-pa2-stephaniehe8080\obj\Debug\net5.0\mis321-pa2-stephaniehe8080.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\steph\source\repos\mis321-pa2-stephaniehe8080\obj\Debug\net5.0\mis321-pa2-stephaniehe8080.AssemblyInfoInputs.cache
+C:\Users\steph\source\repos\mis321-pa2-stephaniehe8080\obj\Debug\net5.0\mis321-pa2-stephaniehe8080.AssemblyInfo.cs
+C:\Users\steph\source\repos\mis321-pa2-stephaniehe8080\obj\Debug\net5.0\mis321-pa2-stephaniehe8080.csproj.CoreCompileInputs.cache
+C:\Users\steph\source\repos\mis321-pa2-stephaniehe8080\obj\Debug\net5.0\mis321-pa2-stephaniehe8080.dll
+C:\Users\steph\source\repos\mis321-pa2-stephaniehe8080\obj\Debug\net5.0\ref\mis321-pa2-stephaniehe8080.dll
+C:\Users\steph\source\repos\mis321-pa2-stephaniehe8080\obj\Debug\net5.0\mis321-pa2-stephaniehe8080.pdb
+C:\Users\steph\source\repos\mis321-pa2-stephaniehe8080\obj\Debug\net5.0\mis321-pa2-stephaniehe8080.genruntimeconfig.cache
