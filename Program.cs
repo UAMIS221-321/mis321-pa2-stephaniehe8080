@@ -10,83 +10,83 @@ namespace MIS_321_PA_1
         static void Main(string[] args)
         {
             //Default characters created
-            // CreateCharacter("Jack Sparrow", "Distract opponent");
-            // CreateCharacter("Will Turner", "Sword");
-            // CreateCharacter("Davy Jones", "Cannon fire");
+            CreateCharacter("Jack Sparrow", "Distract opponent");
+            CreateCharacter("Will Turner", "Sword");
+            CreateCharacter("Davy Jones", "Cannon fire");
 
             int currentPlayer = 1;
             bool userSelectionForCharacterStatsNotValid = true;
-            string playerOne = "E";
-            string playerTwo = "A";
+            string playerOne = null;
+            string playerTwo = null;
             
-            // while(currentPlayer < 3){
-            //     string userSelection = GetCreateCharacterOrNotSelection(currentPlayer).ToUpper();
+            while(currentPlayer < 3){
+                string userSelection = GetCreateCharacterOrNotSelection(currentPlayer).ToUpper();
 
-            //     if (userSelection == "SELECT CHARACTER"){
-            //         userSelectionForCharacterStatsNotValid = true;
-            //         while(userSelectionForCharacterStatsNotValid){
+                if (userSelection == "SELECT CHARACTER"){
+                    userSelectionForCharacterStatsNotValid = true;
+                    while(userSelectionForCharacterStatsNotValid){
 
-            //             string userSelectionForCharacterStats = GetSelectionForCharacterStats().ToUpper();
+                        string userSelectionForCharacterStats = GetSelectionForCharacterStats().ToUpper();
 
-            //             if(userSelectionForCharacterStats == "Y"){
-            //                 ShowSingleCharacterOriginalStats();
-            //             }
-            //             else if(userSelectionForCharacterStats == "N"){
-            //                 string playerName = AddPlayerCharacter();
-            //                     switch(currentPlayer)
-            //                     {
-            //                         case 1:
-            //                             playerOne = playerName;
-            //                         break;
+                        if(userSelectionForCharacterStats == "Y"){
+                            ShowSingleCharacterOriginalStats();
+                        }
+                        else if(userSelectionForCharacterStats == "N"){
+                            string playerName = AddPlayerCharacter();
+                                switch(currentPlayer)
+                                {
+                                    case 1:
+                                        playerOne = playerName;
+                                    break;
 
-            //                         case 2:
-            //                             playerTwo = playerName;
-            //                         break;
+                                    case 2:
+                                        playerTwo = playerName;
+                                    break;
 
-            //                         default:
-            //                         break;
-            //                     }
-            //                 userSelectionForCharacterStatsNotValid = false;
-            //                 currentPlayer ++;
-            //             }
-            //             else{
-            //                 EnterValidSelection();
-            //             }
-            //         }
-            //     }
-            //     else if (userSelection == "CREATE CHARACTER"){
-            //         //Check if character exists using List.Exist()
-            //         string characterName = GetCharacterName();
-            //         string characterAttackType = GetCharacterAttackType();
-            //         CreateCharacter(characterName, characterAttackType);
-            //     }
-            //     else if (userSelection == "SEE CHARACTER STATS"){
-            //         userSelectionForCharacterStatsNotValid = true;
-            //         while(userSelectionForCharacterStatsNotValid){
+                                    default:
+                                    break;
+                                }
+                            userSelectionForCharacterStatsNotValid = false;
+                            currentPlayer ++;
+                        }
+                        else{
+                            EnterValidSelection();
+                        }
+                    }
+                }
+                else if (userSelection == "CREATE CHARACTER"){
+                    //Check if character exists using List.Exist()
+                    string characterName = GetCharacterName();
+                    string characterAttackType = GetCharacterAttackType();
+                    CreateCharacter(characterName, characterAttackType);
+                }
+                else if (userSelection == "SEE CHARACTER STATS"){
+                    userSelectionForCharacterStatsNotValid = true;
+                    while(userSelectionForCharacterStatsNotValid){
 
-            //             string userSelectionForCharacterStats1 = GetSelectionForCharacterStats().ToUpper();
+                        string userSelectionForCharacterStats1 = GetSelectionForCharacterStats().ToUpper();
 
-            //             if(userSelectionForCharacterStats1 == "Y"){
-            //                 ShowSingleCharacterOriginalStats();
-            //             }
-            //             else if(userSelectionForCharacterStats1 == "N"){
-            //                 userSelectionForCharacterStatsNotValid = false;
-            //             }
-            //             else{
-            //                 EnterValidSelection();
-            //             }
-            //         }
-            //     }
-            //     else if (userSelection == "EXIT"){
-            //         currentPlayer = 3;
-            //         Console.WriteLine("Bye!");
-            //         //Add in method that deletes all player date from players.txt if player so chooses and default characters from characters.txt?
-            //     }
-            //     else{
-            //         EnterValidSelection();
-            //     }
+                        if(userSelectionForCharacterStats1 == "Y"){
+                            ShowSingleCharacterOriginalStats();
+                        }
+                        else if(userSelectionForCharacterStats1 == "N"){
+                            userSelectionForCharacterStatsNotValid = false;
+                        }
+                        else{
+                            EnterValidSelection();
+                        }
+                    }
+                }
+                else if (userSelection == "EXIT"){
+                    currentPlayer = 3;
+                    Console.WriteLine("Bye!");
+                    //Add in method that deletes all player date from players.txt if player so chooses and default characters from characters.txt?
+                }
+                else{
+                    EnterValidSelection();
+                }
 
-            // }
+            }
             
             bool playerOneFirstOrNot = PlayerOneFirstOrNot();
             double damageDone = 0;
@@ -115,11 +115,13 @@ namespace MIS_321_PA_1
                         else{
                             damageDone = DamageDone(playerAttackingAttackType, playerDefendingAttackType, playerOneAttackStrength, playerTwoDefensivePower);
                             playerTwoHealth = playerTwoHealth - damageDone;
-                            UpdateDefensivePlayerHealth(playerTwo, playerTwoHealth);
+                            UpdateDefensivePlayerHealth(playerTwo, playerOne, playerTwoHealth);
                         }
 
                         ShowPowerandDamageDone(playerOne, damageDone);
                         ShowAttackedPlayerStats(playerTwo);
+                        HyphenSeparator();
+                        ShowAttackingPlayerStats(playerOne);
                         playerOneFirstOrNot = false;
 
                         PressEnterToContinue();
@@ -135,11 +137,13 @@ namespace MIS_321_PA_1
                         else{
                             damageDone = DamageDone(playerAttackingAttackType, playerDefendingAttackType, playerTwoAttackStrength, playerOneDefensivePower);
                             playerOneHealth = playerOneHealth - damageDone;
-                            UpdateDefensivePlayerHealth(playerOne, playerOneHealth);
+                            UpdateDefensivePlayerHealth(playerOne, playerTwo, playerOneHealth);
                         }
 
                         ShowPowerandDamageDone(playerTwo, damageDone);
                         ShowAttackedPlayerStats(playerOne);
+                        HyphenSeparator();
+                        ShowAttackingPlayerStats(playerTwo);
                         playerOneFirstOrNot = true;
 
                         PressEnterToContinue();
@@ -152,6 +156,9 @@ namespace MIS_321_PA_1
             Console.WriteLine("Congrats! Someone won.");
         }
 
+        static void HyphenSeparator(){
+            Console.WriteLine("-----------------------------------------------------");
+        }
         static void PressEnterToContinue(){
             Console.WriteLine("-----------------------------------------------------");
             Console.Write("Press <Enter> to continue... ");
@@ -278,6 +285,11 @@ namespace MIS_321_PA_1
             
             return playerHealth;
         }
+        // static string SearchForZeroOrLessThanZeroHealthPlayer(){
+        //     string playerName = player.PlayerName;
+            
+        //     return playerName;
+        // }
         static string SearchAttackTypeByPlayerName(string playerName){
             Player player = SearchForPlayer(playerName);
 
@@ -311,6 +323,8 @@ namespace MIS_321_PA_1
         }
         static string AddPlayerCharacter(){
             string playerName = GetPlayerName();
+
+            List<Character> characterList = CharacterFile.GetCharacters();
             
             Character character = SearchForCharacter();
 
@@ -353,6 +367,13 @@ namespace MIS_321_PA_1
 
             Console.WriteLine("Attacked player: " + player.ToString());
         }   
+        static void ShowAttackingPlayerStats(string playerName){
+            List<Player> playerList = PlayerFile.GetPlayers(); 
+
+            Player player = SearchForPlayer(playerName);
+
+            Console.WriteLine("Attacking player: " + player.ToString());
+        }
         static void ShowAllCurrentPlayerStats(){
             List<Player> playerList = PlayerFile.GetPlayers(); 
 
@@ -360,36 +381,24 @@ namespace MIS_321_PA_1
         }    
         static void ShowPowerandDamageDone(string playerName, double damageDone){
             List<Player> playerList = PlayerFile.GetPlayers(); 
-
+            
             Player player = SearchForPlayer(playerName);
 
             Console.WriteLine("Your character's attack power: " + player.AttackStrength + "\nDamage done: " + damageDone);
         }
-        static void RemovePlayer(string playerName){
+        static void RemovePlayer(string playerNameRemoved, string playerNameStay){
             List<Player> playerList = PlayerFile.GetPlayers();
-            Console.ReadKey();
-            Console.WriteLine("1");
-            Player player = playerList.Find(x => x.PlayerName.Contains(playerName)); 
-            Console.ReadKey();
-            Console.WriteLine("2");
-            playerList.Remove(SearchForPlayer(playerName));
-            Console.ReadKey();
-            Console.WriteLine("3");
+
+            Player playerRemove = playerList.Find(x => x.PlayerName.Contains(playerNameRemoved)); 
+            Player playerStay = playerList.Find(x => x.PlayerName.Contains(playerNameStay)); 
+
+            playerList.Remove(SearchForPlayer(playerNameRemoved));
+
             StreamWriter outFile = new StreamWriter("players.txt");
-            Console.ReadKey();
-            Console.WriteLine("4");
-            foreach(Player aPlayer in playerList){
-                Console.ReadKey();
-                Console.WriteLine("5");
-                outFile.WriteLine(player.ToFile()); 
-                Console.ReadKey();
-                Console.WriteLine("6"); 
-            }
-            Console.ReadKey();
-            Console.WriteLine("7");
+
+            outFile.WriteLine(playerStay.ToFile()); 
+            
             outFile.Close();
-            Console.ReadKey();
-            Console.WriteLine("8");
         }     
         static double DamageDone(string playerAttackingAttackType, string playerDefendingAttackType, int attackerAttackStrength, int defenderDefensePower){
             double damageDone = 0;
@@ -406,8 +415,8 @@ namespace MIS_321_PA_1
 
             return damageDone;
         }
-        static void UpdateDefensivePlayerHealth(string playerName, double playerHealth){
-            Player defensivePlayer = SearchForPlayer(playerName);
+        static void UpdateDefensivePlayerHealth(string playerNameDefend, string playerNameAttack, double playerHealth){
+            Player defensivePlayer = SearchForPlayer(playerNameDefend);
 
             //string playerNam = defensivePlayer.PlayerName;
             string characterName = defensivePlayer.CharacterName;
@@ -417,9 +426,9 @@ namespace MIS_321_PA_1
             int defensivePower = defensivePlayer.DefensivePower;
             string attackType = defensivePlayer.CharacterAttackType;
         
-            Player myPlayer = new Player{PlayerName = playerName, CharacterName = characterName, MaxPower = maxPower, Health = health, AttackStrength = attackStrength, DefensivePower = defensivePower, CharacterAttackType = attackType};
+            Player myPlayer = new Player{PlayerName = playerNameDefend, CharacterName = characterName, MaxPower = maxPower, Health = health, AttackStrength = attackStrength, DefensivePower = defensivePower, CharacterAttackType = attackType};
             
-            RemovePlayer(playerName);
+            RemovePlayer(playerNameDefend, playerNameAttack);
 
             List<Player> playerList = PlayerFile.GetPlayers();
             playerList.Add(myPlayer);
